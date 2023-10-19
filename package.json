@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "animejs": "^3.2.1",
+    "less": "^4.2.0"
+  }
+}

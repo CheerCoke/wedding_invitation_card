@@ -2,7 +2,7 @@
  * @Author: BugMonkey 15298353932@163.com
  * @Date: 2023-10-16 20:01:35
  * @LastEditors: BugMonkey 15298353932@163.com
- * @LastEditTime: 2023-11-01 16:36:30
+ * @LastEditTime: 2023-11-01 17:45:31
  * @FilePath: /wedding_invitation_card/invitation_card/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -15,6 +15,17 @@ let isPlaying = false
 
 const state = reactive({ showBtn: false})
 
+// function mounted() {
+//   wx.config({
+//   debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+//   appId: '', // 必填，公众号的唯一标识
+//   timestamp: , // 必填，生成签名的时间戳
+//   nonceStr: '', // 必填，生成签名的随机串
+//   signature: '',// 必填，签名
+//   jsApiList: [] // 必填，需要使用的JS接口列表
+// });
+// }
+
 function onClickFront(e) {
   if (isPlaying) {
     return
@@ -26,7 +37,7 @@ function onClickFront(e) {
       isPlaying = true
     },
     complete: function (anim) {
-      state.showBtn = true
+      // state.showBtn = true
       // anime({
       //   targets: '#letter',
       //   easing: 'linear',
@@ -83,10 +94,10 @@ function onClickFront(e) {
 
 function openMap(){
   wx.openLocation({
-  latitude: 0, // 纬度，浮点数，范围为90 ~ -90
-  longitude: 0, // 经度，浮点数，范围为180 ~ -180。
+    latitude: 31.232795315128442, // 纬度，浮点数，范围为90 ~ -90
+     ongitude: 121.47511024687574, // 经度，浮点数，范围为180 ~ -180。
   name: '位置', // 位置名
-  address: '', // 地址详情说明
+  address: '飒飒', // 地址详情说明
   scale: 1, // 地图缩放级别,整型值,范围从1~28。默认为最大
   infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
 });
@@ -101,26 +112,29 @@ function openMap(){
     <div class="letter-container" @click="onClickFront">
       <div id="letter">
 
-        <div id="front"></div>
+        <div id="front">
+          <img  src="./assets/mail_ticket.png" class="ticket"/>
+        </div>
         <div id="back">
           <!-- 卡片 -->
-          <img class="card" src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card-21a73da4.png?Expires=1698827873&OSSAccessKeyId=TMP.3KfqT6ysHMxcDKtmc8GyQ4qkC1cBjbaDggsMuaucHtsddpZBVrAzEFnR1xNcsKmFP9Yy9U3QqnALdwWdJDWL31TFUS4HpC&Signature=ISi0t9m2kr2eNkNDmfVM%2BxSbFY4%3D" />
+          <img class="card" src="
+https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card-21a73da4.png" />
           <!-- <img class="card" src="./assets/card.png" /> -->
           <!-- 盖住卡片的封皮 -->
           <!-- <img class="card-overlay" src="./assets/hover_back.png" /> -->
-          <img class="card-overlay" src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/hover_back-b580a6f6.png?Expires=1698827906&OSSAccessKeyId=TMP.3KfqT6ysHMxcDKtmc8GyQ4qkC1cBjbaDggsMuaucHtsddpZBVrAzEFnR1xNcsKmFP9Yy9U3QqnALdwWdJDWL31TFUS4HpC&Signature=DlbYBbShYpTj5QXBN4Zm6JfN4YM%3D" />
+          <img class="card-overlay" src="dist/assets/hover_back-b580a6f6.png" />
           <!-- 上翻部分 -->
           <!-- <img class="cover-back"
             src="./assets/cover-back.png"
             alt="trigle"> -->
             <img class="cover-back"
-            src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-back-aef3fba3.png?Expires=1698828079&OSSAccessKeyId=TMP.3KfqT6ysHMxcDKtmc8GyQ4qkC1cBjbaDggsMuaucHtsddpZBVrAzEFnR1xNcsKmFP9Yy9U3QqnALdwWdJDWL31TFUS4HpC&Signature=QFjXtNTe%2FotSnVenUUdFxitADR0%3D"
+            src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-back-aef3fba3.png"
             alt="trigle">
           <!-- <img class="cover"
             src="./assets/cover.png"
             alt="trigle"> -->
             <img class="cover"
-            src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-2e88ac55.png?Expires=1698828098&OSSAccessKeyId=TMP.3KfqT6ysHMxcDKtmc8GyQ4qkC1cBjbaDggsMuaucHtsddpZBVrAzEFnR1xNcsKmFP9Yy9U3QqnALdwWdJDWL31TFUS4HpC&Signature=FBcKnepiQow7pOepcy0KBY4iNas%3D"
+            src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-2e88ac55.png"
             alt="trigle">
             
         </div>
@@ -128,7 +142,7 @@ function openMap(){
 
     </div>
     <div class="card-fullscreen">
-    <img  src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_fullscreen-83770642.png?Expires=1698828142&OSSAccessKeyId=TMP.3KfqT6ysHMxcDKtmc8GyQ4qkC1cBjbaDggsMuaucHtsddpZBVrAzEFnR1xNcsKmFP9Yy9U3QqnALdwWdJDWL31TFUS4HpC&Signature=QHjTjROxh5lAjwLKp2gKsUZ6NbA%3D" style="position: relative;top:0;
+    <img  src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_fullscreen-83770642.png" style="position: relative;top:0;
   box-shadow: 100px red; width: 100%;
   border-radius: 5px;" alt="婚礼邀请函" /></div>
 
@@ -140,7 +154,7 @@ function openMap(){
 #page_container {
   height: 100vh;
   width: 100vw;
-  background-image: url("https://cdn.greenvelope.com/viewer/background.ashx?backgroundid=1021&backgroundcolor=CCCCCC&q=100&w=1621");
+  background-image: url("http://bugmonkey.oss-cn-shanghai.aliyuncs.com/bg.png");
   background-size: cover;
   display: flex;
   align-items: center;
@@ -169,7 +183,7 @@ function openMap(){
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 2px;
+    border-radius: 3px;
   }
 
   /* 正面  5:3 尺寸*/
@@ -178,6 +192,13 @@ function openMap(){
     background: brown;
     position: relative;
     overflow: hidden;
+
+    .ticket{
+      position: absolute;
+      width: 14%;
+      right: 10px;
+      top: 5px;
+    }
   }
 
   #back {
@@ -185,7 +206,7 @@ function openMap(){
     top: 0;
     left: 0;
     transform: rotateY(180deg);
-    background: url("https://cdn.greenvelope.com/viewer/envelope.ashx?mode=combinedback&coverid=2030&liningid=1022&orientation=portrait&liningcolor=6a0001&borderid=null");
+    background: url("https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_behind.png");
     color: #fff;
     background-size: contain;
     background-repeat: no-repeat;
@@ -246,7 +267,7 @@ function openMap(){
 }
 
 .button{
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: calc(100% - 30px);
   height: 48px;

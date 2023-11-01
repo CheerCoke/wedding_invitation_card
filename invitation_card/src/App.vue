@@ -2,7 +2,7 @@
  * @Author: BugMonkey 15298353932@163.com
  * @Date: 2023-10-16 20:01:35
  * @LastEditors: BugMonkey 15298353932@163.com
- * @LastEditTime: 2023-11-01 17:54:49
+ * @LastEditTime: 2023-11-01 18:02:45
  * @FilePath: /wedding_invitation_card/invitation_card/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -13,7 +13,7 @@ import wx from "weixin-js-sdk";
 import { reactive } from "vue";
 let isPlaying = false
 
-const state = reactive({ showBtn: false})
+const state = reactive({ showBtn: false })
 
 // function mounted() {
 //   wx.config({
@@ -77,30 +77,30 @@ function onClickFront(e) {
   })
   tl.add(
     {
-        targets: '.card-fullscreen',
-        easing: 'linear',
-        delay:anime.stagger(200),
-        scale:[{ value: [0.75, 1], duration: 500 }],
-        opacity:1,
-        duration: 1000,
-        begin:function (anim) {
+      targets: '.card-fullscreen',
+      easing: 'linear',
+      delay: anime.stagger(200),
+      scale: [{ value: [0.75, 1], duration: 500 }],
+      opacity: 1,
+      duration: 1000,
+      begin: function (anim) {
         document.querySelector('.card-fullscreen').style.display = "block"
       }
-      }
+    }
   )
 
   tl.play()
 }
 
-function openMap(){
+function openMap() {
   wx.openLocation({
     latitude: 31.232795315128442, // 纬度，浮点数，范围为90 ~ -90
-     ongitude: 121.47511024687574, // 经度，浮点数，范围为180 ~ -180。
-  name: '位置', // 位置名
-  address: '飒飒', // 地址详情说明
-  scale: 1, // 地图缩放级别,整型值,范围从1~28。默认为最大
-  infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
-});
+    ongitude: 121.47511024687574, // 经度，浮点数，范围为180 ~ -180。
+    name: '位置', // 位置名
+    address: '飒飒', // 地址详情说明
+    scale: 1, // 地图缩放级别,整型值,范围从1~28。默认为最大
+    infoUrl: '' // 在查看位置界面底部显示的超链接,可点击跳转
+  });
 
 
 }
@@ -113,7 +113,8 @@ function openMap(){
       <div id="letter">
 
         <div id="front">
-          <img  src="./assets/mail_ticket.png" class="ticket"/>
+          <img src="./assets/mail_ticket.png" class="ticket" />
+          <img src="./assets/mail.png" class="mail" />
         </div>
         <div id="back">
           <!-- 卡片 -->
@@ -122,29 +123,29 @@ https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card-21a73da4.png" />
           <!-- <img class="card" src="./assets/card.png" /> -->
           <!-- 盖住卡片的封皮 -->
           <!-- <img class="card-overlay" src="./assets/hover_back.png" /> -->
-          <img class="card-overlay" src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/hover_back-b580a6f6.png" />
+          <img class="card-overlay"
+            src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/hover_back-b580a6f6.png" />
           <!-- 上翻部分 -->
           <!-- <img class="cover-back"
             src="./assets/cover-back.png"
             alt="trigle"> -->
-            <img class="cover-back"
-            src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-back-aef3fba3.png"
+          <img class="cover-back" src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-back-aef3fba3.png"
             alt="trigle">
           <!-- <img class="cover"
             src="./assets/cover.png"
             alt="trigle"> -->
-            <img class="cover"
-            src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-2e88ac55.png"
+          <img class="cover" src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-2e88ac55.png"
             alt="trigle">
-            
+
         </div>
       </div>
 
     </div>
     <div class="card-fullscreen">
-    <img  src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_fullscreen-83770642.png" style="position: relative;top:0;
+      <img src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_fullscreen-83770642.png" style="position: relative;top:0;
   box-shadow: 100px red; width: 100%;
-  border-radius: 5px;" alt="婚礼邀请函" /></div>
+  border-radius: 5px;" alt="婚礼邀请函" />
+    </div>
 
     <button v-if="state.showBtn" class="button" @click="openMap">前往酒店</button>
   </div>
@@ -193,11 +194,17 @@ https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card-21a73da4.png" />
     position: relative;
     overflow: hidden;
 
-    .ticket{
+    .ticket {
       position: absolute;
       width: 14%;
       right: 10px;
       top: 5px;
+    }
+    .mail{
+      position: absolute;
+      width: 20%;
+      right: 10px;
+      bottom: 5px;
     }
   }
 
@@ -266,7 +273,7 @@ https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card-21a73da4.png" />
   display: none;
 }
 
-.button{
+.button {
   position: fixed;
   bottom: 0;
   width: calc(100% - 30px);

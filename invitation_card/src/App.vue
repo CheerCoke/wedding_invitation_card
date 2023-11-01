@@ -25,13 +25,13 @@ const loadCount = ref(0);
 //执行下载所有图片
 const loadImages = () => {
   let imgs = [
-    "/src/assets/card.png",
-    "/src/assets/hover_back.png",
-    "/src/assets/cover-back.png",
-    "/src/assets/cover.png",
-    "/src/assets/card_fullscreen.png",
-    "/src/assets/card_behind.png",
-    "/src/assets/bg.png",
+    "./assets/card.png",
+    "./assets/hover_back.png",
+    "./assets/cover-back.png",
+    "./assets/cover.png",
+    "./assets/card_fullscreen.png",
+    "./assets/card_behind.png",
+    "./assets/bg.png",
   ]
 
   for (let img of imgs) {

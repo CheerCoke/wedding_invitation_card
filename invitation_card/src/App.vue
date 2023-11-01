@@ -2,7 +2,7 @@
  * @Author: BugMonkey 15298353932@163.com
  * @Date: 2023-10-16 20:01:35
  * @LastEditors: BugMonkey 15298353932@163.com
- * @LastEditTime: 2023-11-01 18:07:47
+ * @LastEditTime: 2023-11-01 18:30:15
  * @FilePath: /wedding_invitation_card/invitation_card/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -10,11 +10,52 @@
 <script setup>
 import anime from "animejs";
 // import wx from "weixin-js-sdk";
-import { reactive } from "vue";
+import { reactive ,ref } from "vue";
 let isPlaying = false
 
 const state = reactive({ showBtn: false })
 
+
+//加载的百分比
+const loadingProcess = ref("0");
+//是否显示
+const loadingShow = ref(true);
+//已加载完成的数量 
+const loadCount = ref(0);
+//执行下载所有图片
+const loadImages = () => {
+  let imgs = [
+    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card-21a73da4.png",
+    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/hover_back-b580a6f6.png",
+    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-back-aef3fba3.png",
+    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-2e88ac55.png",
+    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_fullscreen-83770642.png",
+    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_behind.png",
+    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_behind.png",
+  ]
+
+  for (let img of imgs) {
+    let image = new Image()
+    image.src = img
+    image.onload = () => {
+      console.log("image.onload:length:" + imgs.length);
+      console.log("image.onload:src:" + image.src);
+      loadCount.value++
+      // 计算图片加载的百分数，绑定到percent变量
+      let percentNum = Math.floor(loadCount.value / imgs.length * 100)
+      loadingProcess.value = percentNum;
+
+      //判断是否结束
+      if (loadCount.value >= imgs.length) {
+        //loading end
+        console.log('end:' + loadingProcess.value);
+        loadingShow.value = false;
+      }
+    }
+  }
+}
+
+loadImages();
 // function mounted() {
 //   wx.config({
 //   debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -109,7 +150,7 @@ function openMap() {
 
 <template>
   <div id="page_container">
-    <div class="letter-container" @click="onClickFront">
+    <div v-show="!loadingShow" class="letter-container" @click="onClickFront">
       <div id="letter">
 
         <div id="front">
@@ -147,6 +188,14 @@ function openMap() {
     </div>
 
     <button v-if="state.showBtn" class="button" @click="openMap">前往酒店</button>
+
+    <div ref="loadingDiv" v-show="loadingShow"
+      style="left:0;top:0;position:fixed;width:100vw;height:100vh;background: #000000;opacity: 0.7;z-index:65535;">
+      <div
+        style="font-size:0.5rem;text-align:center;width:3rem;height:1rem;color:#ffffff;position:absolute;left:calc(50vw - 1.5rem);top:calc(50vh - 0.5rem);">
+        loading:{{ loadingProcess }}%
+      </div>
+    </div>
   </div>
 </template>
 
@@ -199,7 +248,8 @@ function openMap() {
       right: 10px;
       top: 5px;
     }
-    .mail{
+
+    .mail {
       position: absolute;
       width: 20%;
       right: 10px;

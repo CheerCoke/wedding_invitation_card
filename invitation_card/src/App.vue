@@ -2,14 +2,14 @@
  * @Author: BugMonkey 15298353932@163.com
  * @Date: 2023-10-16 20:01:35
  * @LastEditors: BugMonkey 15298353932@163.com
- * @LastEditTime: 2023-11-01 18:02:45
+ * @LastEditTime: 2023-11-01 18:07:47
  * @FilePath: /wedding_invitation_card/invitation_card/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
 
 <script setup>
 import anime from "animejs";
-import wx from "weixin-js-sdk";
+// import wx from "weixin-js-sdk";
 import { reactive } from "vue";
 let isPlaying = false
 
@@ -118,8 +118,7 @@ function openMap() {
         </div>
         <div id="back">
           <!-- 卡片 -->
-          <img class="card" src="
-https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card-21a73da4.png" />
+          <img class="card" src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card-21a73da4.png" />
           <!-- <img class="card" src="./assets/card.png" /> -->
           <!-- 盖住卡片的封皮 -->
           <!-- <img class="card-overlay" src="./assets/hover_back.png" /> -->

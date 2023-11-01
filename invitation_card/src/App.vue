@@ -25,18 +25,18 @@ const loadCount = ref(0);
 //执行下载所有图片
 const loadImages = () => {
   let imgs = [
-    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card-21a73da4.png",
-    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/hover_back-b580a6f6.png",
-    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-back-aef3fba3.png",
-    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-2e88ac55.png",
-    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_fullscreen-83770642.png",
-    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_behind.png",
-    "https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_behind.png",
+    "/src/assets/card.png",
+    "/src/assets/hover_back.png",
+    "/src/assets/cover-back.png",
+    "/src/assets/cover.png",
+    "/src/assets/card_fullscreen.png",
+    "/src/assets/card_behind.png",
+    "/src/assets/bg.png",
   ]
 
   for (let img of imgs) {
     let image = new Image()
-    image.src = img
+    image.src = new URL(img, import.meta.url).href
     image.onload = () => {
       console.log("image.onload:length:" + imgs.length);
       console.log("image.onload:src:" + image.src);
@@ -55,7 +55,7 @@ const loadImages = () => {
   }
 }
 
-loadImages();
+loadImages()
 // function mounted() {
 //   wx.config({
 //   debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -159,22 +159,16 @@ function openMap() {
         </div>
         <div id="back">
           <!-- 卡片 -->
-          <img class="card" src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card-21a73da4.png" />
-          <!-- <img class="card" src="./assets/card.png" /> -->
+          <img class="card" src="./assets/card.png" />
           <!-- 盖住卡片的封皮 -->
-          <!-- <img class="card-overlay" src="./assets/hover_back.png" /> -->
-          <img class="card-overlay"
-            src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/hover_back-b580a6f6.png" />
+          <img class="card-overlay" src="./assets/hover_back.png" />
           <!-- 上翻部分 -->
-          <!-- <img class="cover-back"
+          <img class="cover-back"
             src="./assets/cover-back.png"
-            alt="trigle"> -->
-          <img class="cover-back" src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-back-aef3fba3.png"
             alt="trigle">
-          <!-- <img class="cover"
+          
+          <img class="cover"
             src="./assets/cover.png"
-            alt="trigle"> -->
-          <img class="cover" src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-2e88ac55.png"
             alt="trigle">
 
         </div>
@@ -182,7 +176,7 @@ function openMap() {
 
     </div>
     <div class="card-fullscreen">
-      <img src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_fullscreen-83770642.png" style="position: relative;top:0;
+      <img src="./assets/card_fullscreen.png" style="position: relative;top:0;
   box-shadow: 100px red; width: 100%;
   border-radius: 5px;" alt="婚礼邀请函" />
     </div>
@@ -203,7 +197,7 @@ function openMap() {
 #page_container {
   height: 100vh;
   width: 100vw;
-  background-image: url("http://bugmonkey.oss-cn-shanghai.aliyuncs.com/bg.png");
+  background: url("./assets/bg.png");
   background-size: cover;
   display: flex;
   align-items: center;
@@ -262,7 +256,7 @@ function openMap() {
     top: 0;
     left: 0;
     transform: rotateY(180deg);
-    background: url("https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_behind.png");
+    background: url("./assets/card_behind.png");
     color: #fff;
     background-size: contain;
     background-repeat: no-repeat;

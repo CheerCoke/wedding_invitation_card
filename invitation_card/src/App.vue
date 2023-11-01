@@ -2,7 +2,7 @@
  * @Author: BugMonkey 15298353932@163.com
  * @Date: 2023-10-16 20:01:35
  * @LastEditors: BugMonkey 15298353932@163.com
- * @LastEditTime: 2023-11-01 15:58:36
+ * @LastEditTime: 2023-11-01 16:36:30
  * @FilePath: /wedding_invitation_card/invitation_card/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -104,28 +104,31 @@ function openMap(){
         <div id="front"></div>
         <div id="back">
           <!-- 卡片 -->
-          <img class="card" src="./assets/card.png" />
-
+          <img class="card" src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card-21a73da4.png?Expires=1698827873&OSSAccessKeyId=TMP.3KfqT6ysHMxcDKtmc8GyQ4qkC1cBjbaDggsMuaucHtsddpZBVrAzEFnR1xNcsKmFP9Yy9U3QqnALdwWdJDWL31TFUS4HpC&Signature=ISi0t9m2kr2eNkNDmfVM%2BxSbFY4%3D" />
+          <!-- <img class="card" src="./assets/card.png" /> -->
           <!-- 盖住卡片的封皮 -->
-          <img class="card-overlay"
-            src="./assets/hover_back.png" />
-
+          <!-- <img class="card-overlay" src="./assets/hover_back.png" /> -->
+          <img class="card-overlay" src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/hover_back-b580a6f6.png?Expires=1698827906&OSSAccessKeyId=TMP.3KfqT6ysHMxcDKtmc8GyQ4qkC1cBjbaDggsMuaucHtsddpZBVrAzEFnR1xNcsKmFP9Yy9U3QqnALdwWdJDWL31TFUS4HpC&Signature=DlbYBbShYpTj5QXBN4Zm6JfN4YM%3D" />
           <!-- 上翻部分 -->
-          <img class="cover-back"
+          <!-- <img class="cover-back"
             src="./assets/cover-back.png"
+            alt="trigle"> -->
+            <img class="cover-back"
+            src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-back-aef3fba3.png?Expires=1698828079&OSSAccessKeyId=TMP.3KfqT6ysHMxcDKtmc8GyQ4qkC1cBjbaDggsMuaucHtsddpZBVrAzEFnR1xNcsKmFP9Yy9U3QqnALdwWdJDWL31TFUS4HpC&Signature=QFjXtNTe%2FotSnVenUUdFxitADR0%3D"
             alt="trigle">
-
-          <img class="cover"
+          <!-- <img class="cover"
             src="./assets/cover.png"
+            alt="trigle"> -->
+            <img class="cover"
+            src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/cover-2e88ac55.png?Expires=1698828098&OSSAccessKeyId=TMP.3KfqT6ysHMxcDKtmc8GyQ4qkC1cBjbaDggsMuaucHtsddpZBVrAzEFnR1xNcsKmFP9Yy9U3QqnALdwWdJDWL31TFUS4HpC&Signature=FBcKnepiQow7pOepcy0KBY4iNas%3D"
             alt="trigle">
-
-
+            
         </div>
       </div>
 
     </div>
     <div class="card-fullscreen">
-    <img  src="./assets/card_fullscreen.png" style="position: relative;top:0;
+    <img  src="https://bugmonkey.oss-cn-shanghai.aliyuncs.com/dist/assets/card_fullscreen-83770642.png?Expires=1698828142&OSSAccessKeyId=TMP.3KfqT6ysHMxcDKtmc8GyQ4qkC1cBjbaDggsMuaucHtsddpZBVrAzEFnR1xNcsKmFP9Yy9U3QqnALdwWdJDWL31TFUS4HpC&Signature=QHjTjROxh5lAjwLKp2gKsUZ6NbA%3D" style="position: relative;top:0;
   box-shadow: 100px red; width: 100%;
   border-radius: 5px;" alt="婚礼邀请函" /></div>
 

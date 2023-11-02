@@ -2,7 +2,7 @@
  * @Author: BugMonkey 15298353932@163.com
  * @Date: 2023-10-16 20:01:35
  * @LastEditors: BugMonkey 15298353932@163.com
- * @LastEditTime: 2023-11-01 18:30:15
+ * @LastEditTime: 2023-11-02 15:13:38
  * @FilePath: /wedding_invitation_card/invitation_card/src/App.vue
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
 -->
@@ -11,6 +11,13 @@
 import anime from "animejs";
 // import wx from "weixin-js-sdk";
 import { reactive ,ref } from "vue";
+import assets_card from "./assets/card.png"
+import assets_cover_back from "./assets/cover-back.png"
+import assets_cover from "./assets/cover.png"
+import assets_card_fullscreen from "./assets/card_fullscreen.png"
+import assets_card_behind from "./assets/card_behind.png"
+import assets_bg from "./assets/bg.png"
+
 let isPlaying = false
 
 const state = reactive({ showBtn: false })
@@ -25,21 +32,20 @@ const loadCount = ref(0);
 //执行下载所有图片
 const loadImages = () => {
   let imgs = [
-    "./assets/card.png",
-    "./assets/hover_back.png",
-    "./assets/cover-back.png",
-    "./assets/cover.png",
-    "./assets/card_fullscreen.png",
-    "./assets/card_behind.png",
-    "./assets/bg.png",
+    assets_card,
+    assets_cover_back,
+    assets_cover,
+    assets_card_fullscreen,
+    assets_card_behind,
+    assets_bg,
   ]
 
   for (let img of imgs) {
     let image = new Image()
     image.src = new URL(img, import.meta.url).href
+    console.log("image.onload:src:" + image.src);
     image.onload = () => {
       console.log("image.onload:length:" + imgs.length);
-      console.log("image.onload:src:" + image.src);
       loadCount.value++
       // 计算图片加载的百分数，绑定到percent变量
       let percentNum = Math.floor(loadCount.value / imgs.length * 100)
@@ -154,21 +160,21 @@ function openMap() {
       <div id="letter">
 
         <div id="front">
-          <img src="./assets/mail_ticket.png" class="ticket" />
-          <img src="./assets/mail.png" class="mail" />
+          <img src="@/assets/mail_ticket.png" class="ticket" />
+          <img src="@/assets/mail.png" class="mail" />
         </div>
         <div id="back">
           <!-- 卡片 -->
-          <img class="card" src="./assets/card.png" />
+          <img class="card" src="@/assets/card.png" />
           <!-- 盖住卡片的封皮 -->
-          <img class="card-overlay" src="./assets/hover_back.png" />
+          <img class="card-overlay" src="@/assets/hover_back.png" />
           <!-- 上翻部分 -->
           <img class="cover-back"
-            src="./assets/cover-back.png"
+            src="@/assets/cover-back.png"
             alt="trigle">
           
           <img class="cover"
-            src="./assets/cover.png"
+            src="@/assets/cover.png"
             alt="trigle">
 
         </div>
@@ -176,7 +182,7 @@ function openMap() {
 
     </div>
     <div class="card-fullscreen">
-      <img src="./assets/card_fullscreen.png" style="position: relative;top:0;
+      <img src="@/assets/card_fullscreen.png" style="position: relative;top:0;
   box-shadow: 100px red; width: 100%;
   border-radius: 5px;" alt="婚礼邀请函" />
     </div>
